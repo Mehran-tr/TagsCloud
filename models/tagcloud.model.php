@@ -11,7 +11,7 @@ class tagcloud_model{
 
         // get tags and largest value
 
-        $this->tags;
+        $this->get_tags();
     }
 
     /*Utility Functions
