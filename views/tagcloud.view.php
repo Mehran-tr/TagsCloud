@@ -22,16 +22,41 @@
         .tagcloud a.tag9 { font-size: 2.2em; font-weight: 900; }
         .tagcloud a.tag10 { font-size: 2.5em; font-weight: 900; }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 </head>
-<body>
 
-<h1>Tag Cloud</h1>
+<body class="bg-light" data-new-gr-c-s-check-loaded="8.901.0" data-gr-ext-installed="">
 
-<h2>List:</h2>
-<?= $data['tag_list']; ?>
+<div class="container">
+    <div class="py-5 text-center">
 
-<h2>Cloud:</h2>
-<?= $data['tag_cloud']; ?>
+        <h2>Tags Cloud</h2>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+
+            <div class="table-responsive">
+                <h2>List:</h2>
+                <?= $data['tag_list']; ?>
+            </div>
+
+
+
+            <h2>Cloud:</h2>
+            <?= $data['tag_cloud']; ?>
+        </div>
+
+    </div>
+
+
+</div>
+
+
 
 </body>
 </html> 

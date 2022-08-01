@@ -51,8 +51,8 @@ class tagcloud_model{
 
         if ($this->tags != FALSE){
             $data = '';
-            $data .= "<table border='1' cellpadding='10'>";
-            $data .= "<tr><th>ID</th><th>Tag Name</th><th>Count</th><th>Weight</th></tr>";
+            $data .= "<table class='table table-striped table-sm'>";
+            $data .= "<tr><th scope='col'>ID</th><th scope='col'>Tag Name</th><th scope='col'>Count</th><th scope='col'>Weight</th></tr>";
             foreach ($this->tags as $tag){
                 //find weight
                 $weight = round(($tag['total'] / $this->largest) * 10);
