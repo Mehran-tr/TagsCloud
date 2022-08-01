@@ -49,51 +49,67 @@ class tagcloud_model{
     ------------------------------------------------------------ */
     function get_tag_list(){
 
-        if ($this->tags != FALSE){
+        if ($this->tags == FALSE) {
+            return "No tags to display";
+        } else {
             $data = '';
             $data .= "<table class='table table-striped table-sm'>";
             $data .= "<tr><th scope='col'>ID</th><th scope='col'>Tag Name</th><th scope='col'>Count</th><th scope='col'>Weight</th></tr>";
-            foreach ($this->tags as $tag){
+            foreach ($this->tags as $tag) {
                 //find weight
                 $weight = round(($tag['total'] / $this->largest) * 10);
 
                 $data .= "<tr>";
-                $data .= "<td>".$tag['id']."</td>";
-                $data .= "<td>".$tag['name']."</td>";
-                $data .= "<td>".$tag['total']."</td>";
-                $data .= "<td>".$weight."</td>";
+                $data .= "<td>" . $tag['id'] . "</td>";
+                $data .= "<td>" . $tag['name'] . "</td>";
+                $data .= "<td>" . $tag['total'] . "</td>";
+                $data .= "<td>" . $weight . "</td>";
                 $data .= "</tr>";
             }
             $data .= "</table>";
             return $data;
-        }else{
-            return "No tags to display";
         }
     }
 
     function get_tag_cloud(){
-        if ($this->tags != FALSE){
+        if ($this->tags == FALSE) {
+            return "No tags to display";
+        } else {
 
             //create unordered list
             $data = '';
 
             $data .= "<ul class='tagcloud'>";
 
-            foreach ($this->tags as $tag){
+            foreach ($this->tags as $tag) {
                 $weight = round(($tag['total'] / $this->largest) * 10);
 
                 //create list item
                 // create list item
-                $data .= "<li><a href='tags.php?id=". $tag['id'] ."' class='tag". $weight ."'>";
+                $data .= "<li><a href='tags.php?id=" . $tag['id'] . "' class='tag" . $weight . "'>";
                 $data .= $tag['name'] . "<a></li>";
                 $data .= "\n";
             }
 
             $data .= "</ul>";
             return $data;
-        }else{
-            return "No tags to display";
         }
     }
 
+    function get_tag_weight(){
+        if ($this->tags == FALSE) {
+            return "No tags to display";
+        } else {
+            $data = [];
+            //create unordered list
+            foreach($this->tags as $tag){
+                $weight = round(($tag['total'] / $this->largest) * 10);
+                $data [] = [
+                        'tag' => $tag['name'] ,
+                        'weight' =>   $weight
+                    ];
+            }
+                return $data;
+        }
+    }
 }
